@@ -37,5 +37,27 @@ $('.saveBtn').on('click', function(){
 const currentDate = new Date();
 const currentHour = currentDate.getHours(); 
 
-});
+
+$('.time-block').each(function (){
+    console.log($(this));
+    var blockHour = parseInt($(this).attr("id").split('-')[1])
+    if (blockHour < currentHour) {
+        $(this).removeClass('present');
+        $(this).removeClass('future');
+        $(this).addClass('past');
+      } else if (blockHour === currentHour) {
+        $(this).removeClass('past');
+        $(this).removeClass('future');
+        $(this).addClass('present');
+      } else {
+        $(this).removeClass('present');
+        $(this).removeClass('past');
+        $(this).addClass('future');
+      }  
+      var key = $(this).attr("id")
+      $(this).children('.description').val(localStorage.getItem(key));
+     
+})
+
+  });
   
