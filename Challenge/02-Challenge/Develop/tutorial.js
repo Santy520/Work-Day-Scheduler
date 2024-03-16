@@ -27,10 +27,15 @@ $('.saveBtn').on('click', function(){
   var textValue = $(this).siblings('.description').val();
   var keyValue = $(this).parent().attr('id');
 //   console.log(keyValue);
-
+  localStorage.setItem(keyValue, textValue)
+  $('#info').removeClass('show')
+  setTimeout(() => {
+    $('#info').addClass('show')
+  }, 4000);
+})
 
 const currentDate = new Date();
 const currentHour = currentDate.getHours(); 
 
-})});
+});
   
