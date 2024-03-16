@@ -39,9 +39,10 @@ for (let hour = 9; hour <= 17; hour++) {
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
   // Attach event listener to the save button
-  saveButton.addEventListener('click', function (event) {
+  $('.saveBtn').addEventListener('click', function (event) {
     const hourClicked = parseInt(timeBlock.id.split('-')[1]); // Get the hour from the time block ID
     saveEvent(hourClicked, inputField.value); // Save event to local storage
+    alert('event added to local storage!')
   });
   timeBlock.appendChild(saveButton);
 
